@@ -1,0 +1,46 @@
+**** GUIDE TO ITERATIVE TRAVERSALS IN TREES ****
+
+** LEVEL ORDER **
+Level order for tree is same as BFS for Graph
+Use Queue
+enqueue(root)
+while(!queue_empty()){
+    temp=dequeue()
+    print(temp->data)
+    enqueue(root->left)
+    enqueue(root->right)
+}
+
+
+** PREORDER **
+Use Stack
+push(root)
+while(!stacl.empty()){
+    Node temp=stack.pop()
+    print(temp->data)
+    push(temp->right)
+    push(temp->left)
+}
+
+we are pushing right child first so that the left child is processed first
+
+
+** INORDER **
+Use stack
+initialize curr=root
+push(curr)
+curr=curr->left
+if curr==NULL and !stack.empty()
+Node temp=stack.pop()
+print(temp->data)
+curr=temp->right
+
+
+** POSTORDER **
+Use 2 Stacks
+push(root) to stack1
+while(!stack1.isEmpty()){
+    pop a node from stack1 and push to stack2
+    push left and right children of popped node to stack1
+}
+print contents of stack2
